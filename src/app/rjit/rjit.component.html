@@ -1,0 +1,22 @@
+<table class="table">
+    <tr>
+        <th>name</th>
+        <th>category</th>
+        <th>brand</th>
+        <th>desc</th>
+        <th>price</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let news of newsdata">
+          <td>{{news.name}}</td>
+          <td>{{news.category}}</td>
+          <td>{{news.brand}}</td>
+          <td>{{news.desc}}</td>
+          <td>{{news.price}}</td>
+          <td><img [src]="news.imgpath" width="100px" height="100px"></td>
+          <td><a [routerLink]="['/showid', news.id]">Show</a>
+            <a [routerLink]="['/add', news.id]">Edit</a>
+            <a (click)="onDelete(news.id)" class="btn btn-danger btn-sm">Delete</a></td>
+      </tr>
+</table>
